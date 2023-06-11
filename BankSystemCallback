@@ -1,0 +1,49 @@
+var Account=[]
+addAccount=(obj)=>{
+    Account.push(obj)
+}
+depoSite=(add,showBlance,obj)=>{
+    obj.Blance+=add+obj.Blance
+    showBlance(obj)
+    console.log("Deposite ")
+}
+checkBlance=(obj)=>{
+
+    console.log("Blance:-",obj.Blance,"Name:-",obj.Name)
+
+}
+withDrawal=(obj,amount,viewBlance)=>
+{
+     if(obj.Blance>=amount)
+     {
+        obj.Blance-=amount
+        viewBlance(obj)
+        console.log("Withdrawal Successful")
+     }
+     else
+     {
+        console.log("Inefficient Balance ")
+     }
+}
+
+BankAccount1={
+    Name:"Devendra Waykole",
+    Account_No:98601,
+    Blance:5600
+
+}
+BankAccount2=
+{
+    Name :"Devyani Pawar",
+    Account_No:54212,
+    Blance:1000
+}
+addAccount(BankAccount1)
+addAccount(BankAccount2)
+depoSite(5000,checkBlance,BankAccount1)
+depoSite(10000,checkBlance,BankAccount2)
+withDrawal(BankAccount1,1000,checkBlance)
+withDrawal(BankAccount2,50000,checkBlance)
+
+
+
